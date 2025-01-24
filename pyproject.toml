@@ -1,27 +1,20 @@
-[tool.poetry]
+[project]
 name = "tpms-gui"
 version = "0.1.0"
-description = ""
-authors = ["Kevin Marchais <kevinmarchais@gmail.com>"]
+description = "Add your description here"
 readme = "README.md"
+authors = [{ name = "Kevin Marchais", email = "kevinmarchais@gmail.com" }]
+requires-python = ">=3.9"
+dependencies = [
+    "pyvista>=0.44.2",
+    "trame>=3.7.6",
+    "trame-vtk>=2.8.14",
+    "trame-vuetify>=2.8.1",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.8, <=3.12"
-pyvista = "^0.43.10"
-trame = "^3.6.3"
-trame-vuetify = "^2.6.0"
-trame-vtk = "^2.8.9"
-
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.10.0"
-ruff = "^0.4.10"
-pytest = "^8.2.2"
-pytest-cov = "^5.0.0"
+[project.scripts]
+tpms-gui = "tpms_gui:main"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.ruff]
-lint.select = ["ALL"]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

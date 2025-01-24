@@ -196,10 +196,7 @@ class Gui:
         """Update the plotter."""
         self.tpms.sheet()
 
-        if self.show_grid:
-            self.mesh = self.tpms.grid
-        else:
-            self.mesh = self.tpms.mesh
+        self.mesh = self.tpms.grid if self.show_grid else self.tpms.mesh
 
     def update_actor(self: Gui) -> None:
         """Update the actor."""
@@ -221,10 +218,7 @@ class Gui:
         ) -> None:
             """Set the active display (Mesh or Grid) type and update the view."""
             self.show_grid = show_grid
-            if show_grid:
-                self.mesh = self.tpms.grid
-            else:
-                self.mesh = self.tpms.mesh
+            self.mesh = self.tpms.grid if show_grid else self.tpms.mesh
             self.update_actor()
             self.server.controller.view_update()
 
